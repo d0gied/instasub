@@ -2,16 +2,13 @@ import random
 from pywebio.output import put_markdown
 from pywebio.platform.tornado import start_server
 from pywebio.session import run_js
-import requests
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import pickle
 from selenium.webdriver.chrome.options import Options
 from pywebio.input import *
 from pywebio.output import *
 import os
 import time
-from selenium.webdriver.common.action_chains import ActionChains
 
 user_url = ''
 options = Options()
@@ -81,8 +78,6 @@ def main():
     num = int(sub_btn.text)
     sub_btn.click()
     driver.implicitly_wait(5)
-    # followings_list = driver.find_element_by_xpath(
-    #     "//ul[@class='jSC57  _6xe7A']")
     scrolling_element = driver.find_element_by_xpath("//div[@class='isgrP']")  
     put_markdown(f'Сканирование подписок...')
     put_processbar('bar', auto_close=True)
